@@ -9,6 +9,7 @@ N="\e[0m"
 if [ $id -ne 0 ]
 then
   echo -e " $R error: $N could you please provide root access "
+  exit 1
 else 
   echo -e " you have a $G root access "
 fi
