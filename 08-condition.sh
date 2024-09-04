@@ -2,6 +2,10 @@
 
 id=$(id -u)
 
+TIMESTAMP=$(date +%F-%H-%M-%S)
+
+LOGFILE="/tmp/$0-$TIMESTAMP.log"
+
 VALIDATE (){
 if [ $1 -ne 0 ]
 then
@@ -26,11 +30,11 @@ else
   echo -e " you have a $G root access "
 fi
 
-yum install mysql -y
+yum install mysql -y &>> $LOGFILE
 
-VALIDATE $? " insatlling mysql "
+VALIDATE $? " insatlling mysql "  
 
-yum install git -y
+yum install git -y &>> $LOGFILE
 
 VALIDATE $? " insatlling git "
 
