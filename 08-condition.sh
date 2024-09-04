@@ -26,7 +26,7 @@ else
   echo -e " you have a $G root access "
 fi
 
-yum install mysqll -y
+yum install mysql -y
 
 VALIDATE
 
