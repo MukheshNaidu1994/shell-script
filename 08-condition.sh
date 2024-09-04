@@ -1,6 +1,18 @@
 #!/bin/bash
 
 id=$(id -u)
+
+VALIDATE (){
+if [ $? -ne 0 ]
+then
+ echo -e " installing mysql is $Y failed "
+ exit 1
+else
+  echo -e " installing mysql is $Y success "
+fi
+}
+
+
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -16,11 +28,9 @@ fi
 
 yum install mysqll -y
 
-if [ $? -ne 0 ]
-then
- echo -e " installing mysql is $Y failed "
- #exit 1
-else
-  echo -e " installing mysql is $Y success "
-fi
+VALIDATE
+
+yum install git -y
+
+VALIDATE
 
