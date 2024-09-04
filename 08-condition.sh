@@ -14,4 +14,6 @@ else
   echo -e " you have a $G root access "
 fi
 
+yum install mysql -y
+
 
